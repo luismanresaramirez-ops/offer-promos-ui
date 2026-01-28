@@ -1,0 +1,27 @@
+<h2>Créer un article</h2>
+<form #articleForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Type :
+      <select [(ngModel)]="article.type" name="type">
+        <option value="MAJOR">Majeur</option>
+        <option value="MINOR">Mineur</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Désignation :
+      <input [(ngModel)]="article.designation" name="designation" required />
+    </label>
+  </div>
+  <div>
+    <label>
+      Prix :
+      <input type="number" [(ngModel)]="article.prix" name="prix" required />
+    </label>
+  </div>
+  <div style="margin-top: 1rem;">
+    <button type="submit" [disabled]="!articleForm.form.valid">Créer</button>
+  </div>
+</form>

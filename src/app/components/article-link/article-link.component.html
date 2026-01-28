@@ -1,0 +1,24 @@
+<h2>Associer un article mineur à un article majeur</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Article majeur :
+      <select [(ngModel)]="selectedMajorId" name="major">
+        <option [ngValue]="null">-- Sélectionnez --</option>
+        <option *ngFor="let m of majors" [ngValue]="m.id">{{ m.designation }}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Article mineur :
+      <select [(ngModel)]="selectedMinorId" name="minor">
+        <option [ngValue]="null">-- Sélectionnez --</option>
+        <option *ngFor="let m of minors" [ngValue]="m.id">{{ m.designation }}</option>
+      </select>
+    </label>
+  </div>
+  <div style="margin-top: 1rem;">
+    <button type="submit" [disabled]="selectedMajorId == null || selectedMinorId == null">Associer</button>
+  </div>
+</form>

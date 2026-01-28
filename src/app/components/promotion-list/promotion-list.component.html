@@ -1,0 +1,36 @@
+<h2>Promotions en cours</h2>
+<div style="margin-bottom: 1rem;">
+  <label>
+    Date :
+    <input type="date" [(ngModel)]="date" (change)="onFilterChange()" />
+  </label>
+  <label style="margin-left: 1rem;">
+    Appliquer décalant :
+    <input type="checkbox" [(ngModel)]="decalant" (change)="onFilterChange()" />
+  </label>
+</div>
+
+<table *ngIf="promotions && promotions.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>En promotion</th>
+      <th>Prix initial</th>
+      <th>Prix final</th>
+      <th>Mois gratuit</th>
+      <th>Promotion appliquée</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of promotions">
+      <td>{{ p.id }}</td>
+      <td>{{ p.enPromotion }}</td>
+      <td>{{ p.prixInitial }}</td>
+      <td>{{ p.prixFinal }}</td>
+      <td>{{ p.moisGratuit ? p.moisGratuit.nb + ' mois' : '-' }}</td>
+      <td>{{ p.promotionAppliquee ? p.promotionAppliquee.libelle : '-' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="promotions.length === 0">Aucune promotion trouvée pour ces filtres.</p>

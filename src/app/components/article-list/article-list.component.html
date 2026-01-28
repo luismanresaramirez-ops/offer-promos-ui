@@ -1,0 +1,36 @@
+<h2>Liste des articles</h2>
+<div>
+  <label>
+    Type d'article:
+    <select [(ngModel)]="selectedType" (change)="onTypeChange()">
+      <option value="MAJOR">Majeur</option>
+      <option value="MINOR">Mineur</option>
+    </select>
+  </label>
+  <span style="margin-left: 1rem;"><a routerLink="/articles/new">Créer un article</a></span>
+  <span style="margin-left: 1rem;"><a routerLink="/articles/link">Associer des articles</a></span>
+</div>
+
+<table *ngIf="articles && articles.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Désignation</th>
+      <th>Prix</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let article of articles">
+      <td>{{ article.id }}</td>
+      <td>{{ article.designation }}</td>
+      <td>{{ article.price }}</td>
+      <td>
+        <a [routerLink]="['/articles', article.id]">Détails</a> |
+        <a [routerLink]="['/articles', article.id, 'promo']">Voir promotion</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="articles.length === 0">Aucun article trouvé pour ce type.</p>

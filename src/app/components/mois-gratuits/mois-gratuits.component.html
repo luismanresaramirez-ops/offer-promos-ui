@@ -1,0 +1,31 @@
+<h2>Historique des mois gratuits</h2>
+<div style="margin-bottom: 1rem;">
+  <label>
+    Numéro de contrat :
+    <input type="number" [(ngModel)]="numContrat" />
+  </label>
+  <label style="margin-left: 1rem;">
+    Actif :
+    <input type="checkbox" [(ngModel)]="active" />
+  </label>
+  <button style="margin-left: 1rem;" (click)="fetchHistorique()">Rechercher</button>
+</div>
+
+<table *ngIf="historique.length > 0">
+  <thead>
+    <tr>
+      <th>Code gratuit</th>
+      <th>Date début</th>
+      <th>Date fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let h of historique">
+      <td>{{ h.codeGratuit }}</td>
+      <td>{{ h.dateDebut }}</td>
+      <td>{{ h.dateFin }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="historique.length === 0">Aucun historique trouvé pour ce contrat.</p>

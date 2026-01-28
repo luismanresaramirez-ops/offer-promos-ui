@@ -1,0 +1,24 @@
+<h2>Vérifier la promotion pour l'article {{ articleId }}</h2>
+<div style="margin-bottom: 1rem;">
+  <label>
+    Date :
+    <input type="date" [(ngModel)]="date" (change)="fetchPromotion()" />
+  </label>
+</div>
+
+<div *ngIf="promotion">
+  <p><strong>ID Promotion :</strong> {{ promotion.id }}</p>
+  <p><strong>En promotion :</strong> {{ promotion.enPromotion }}</p>
+  <p><strong>Prix initial :</strong> {{ promotion.prixInitial }}</p>
+  <p><strong>Prix final :</strong> {{ promotion.prixFinal }}</p>
+  <div *ngIf="promotion.moisGratuit">
+    <p><strong>Mois gratuit :</strong> {{ promotion.moisGratuit.nb }}</p>
+  </div>
+  <div *ngIf="promotion.promotionAppliquee">
+    <p><strong>Libellé :</strong> {{ promotion.promotionAppliquee.libelle }}</p>
+    <p><strong>Date début :</strong> {{ promotion.promotionAppliquee.dateDebut }}</p>
+    <p><strong>Date fin :</strong> {{ promotion.promotionAppliquee.dateFin }}</p>
+  </div>
+</div>
+
+<p *ngIf="!promotion">Aucune promotion appliquée.</p>
