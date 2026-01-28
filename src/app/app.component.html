@@ -1,7 +1,11 @@
-<nav>
-  <a routerLink="/articles">Articles</a> |
-  <a routerLink="/promotions">Promotions</a> |
-  <a routerLink="/mois-gratuits">Mois gratuits</a>
-</nav>
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="app-title">Offres & Promotions</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/articles">Articles</a>
+  <a mat-button routerLink="/promotions">Promotions</a>
+  <a mat-button routerLink="/mois-gratuits">Mois gratuits</a>
+</mat-toolbar>
 
-<router-outlet></router-outlet>
+<main class="app-content">
+  <router-outlet></router-outlet>
+</main>
