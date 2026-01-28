@@ -1,1 +1,21 @@
-/* Styles spécifiques à la liste des articles. Ajoutez vos styles ici si nécessaire. */
+.article-table {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.article-table th {
+  font-weight: 600;
+}
+
+.article-table a {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-table a:hover {
+  text-decoration: underline;
+}

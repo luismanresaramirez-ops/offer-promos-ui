@@ -13,6 +13,7 @@ export class ArticleListComponent implements OnInit {
    * depuis le service lorsqu'on change le type.
    */
   articles: Article[] = [];
+  displayedColumns: string[] = ['id', 'designation', 'price', 'actions'];
 
   /**
    * Type sélectionné pour filtrer les articles. Valeurs possibles :

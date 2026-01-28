@@ -11,26 +11,37 @@
   <span style="margin-left: 1rem;"><a routerLink="/articles/link">Associer des articles</a></span>
 </div>
 
-<table *ngIf="articles && articles.length > 0">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Désignation</th>
-      <th>Prix</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let article of articles">
-      <td>{{ article.id }}</td>
-      <td>{{ article.designation }}</td>
-      <td>{{ article.price }}</td>
-      <td>
-        <a [routerLink]="['/articles', article.id]">Détails</a> |
-        <a [routerLink]="['/articles', article.id, 'promo']">Voir promotion</a>
-      </td>
-    </tr>
-  </tbody>
+<table
+  *ngIf="articles && articles.length > 0"
+  mat-table
+  [dataSource]="articles"
+  class="mat-elevation-z2 article-table"
+>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let article">{{ article.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="designation">
+    <th mat-header-cell *matHeaderCellDef>Désignation</th>
+    <td mat-cell *matCellDef="let article">{{ article.designation }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Prix</th>
+    <td mat-cell *matCellDef="let article">{{ article.price }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let article">
+      <a [routerLink]="['/articles', article.id]">Détails</a> |
+      <a [routerLink]="['/articles', article.id, 'promo']">Voir promotion</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
 <p *ngIf="articles.length === 0">Aucun article trouvé pour ce type.</p>
