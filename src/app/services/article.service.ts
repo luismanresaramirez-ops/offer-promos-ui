@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Article } from '../models/article.model';
 import { Promotion } from '../models/promotion.model';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environements/environements';
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
