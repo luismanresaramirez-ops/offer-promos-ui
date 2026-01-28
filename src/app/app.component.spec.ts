@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [AppComponent],
+      imports: [RouterTestingModule],
     }).compileComponents();
   });
 
@@ -20,10 +22,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('offers-promotions-ui-cli');
   });
 
-  it('should render title', () => {
+  it('should render navigation links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, offers-promotions-ui-cli');
+    expect(compiled.querySelectorAll('nav a').length).toBe(3);
   });
 });

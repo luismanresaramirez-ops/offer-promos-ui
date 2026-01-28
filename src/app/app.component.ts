@@ -1,13 +1,10 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
-import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes';
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes),
-    provideHttpClient()
-  ]
-}).catch(err => console.error(err));
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'offers-promotions-ui-cli';
+}
