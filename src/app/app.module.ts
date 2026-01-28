@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,15 +24,7 @@ import { PromotionListComponent } from './components/promotion-list/promotion-li
     PromotionCheckComponent,
     PromotionListComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    MatButtonModule,
-    MatToolbarModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
