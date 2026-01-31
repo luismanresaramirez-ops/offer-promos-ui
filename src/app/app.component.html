@@ -1,7 +1,18 @@
-<nav>
-  <a routerLink="/articles">Articles</a> |
-  <a routerLink="/promotions">Promotions</a> |
-  <a routerLink="/mois-gratuits">Mois gratuits</a>
-</nav>
+<header class="app-header">
+  <div class="app-brand">
+    <span class="brand-dot"></span>
+    <div>
+      <p class="brand-title">Offres & Promotions</p>
+      <p class="brand-subtitle">Bons plans et avantages à portée de main</p>
+    </div>
+  </div>
+  <nav class="app-nav">
+    <a routerLink="/articles">Articles</a>
+    <a routerLink="/promotions">Promotions</a>
+    <a routerLink="/mois-gratuits">Mois gratuits</a>
+  </nav>
+</header>
 
-<router-outlet></router-outlet>
+<main class="app-content">
+  <router-outlet></router-outlet>
+</main>
